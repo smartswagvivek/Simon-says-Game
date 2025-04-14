@@ -1,0 +1,42 @@
+/* General styles for the body and text alignment */
+body {
+    text-align: center;
+    background-color: rgb(230, 219, 205);
+}
+
+/* Button styles */
+.btn {
+    height: 200px;
+    width: 200px;
+    border-radius: 20%;
+    border: 10px solid black;
+    margin: 1.5rem;
+}
+
+/* Container styles for button alignment */
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Individual button colors */
+.red {
+    background-color: #d95980;
+}
+.green {
+    background-color: #63aac0;
+}
+.purple {
+    background-color: #819ff9;
+}
+.yellow {
+    background-color: #f99b45;
+}
+
+/* Flash effect styles */
+.flash {
+    background-color: white;
+}
+.userflash {
+    background-color: green; /* green flash for user input */
+}
