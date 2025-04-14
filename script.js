@@ -7,16 +7,31 @@ let level = 0; // Track the current level
 let h2 = document.querySelector("h2"); // Reference to the level display
 let score = 0; // To keep track of the score
 
+// Add event listeners to all buttons but keep them disabled until the game starts
+let allbtns = document.querySelectorAll(".btn");
+for (let btn of allbtns) {
+    btn.disabled = true; // Disable buttons initially
+}
+
 // Start the game on keypress
 document.addEventListener("keypress", function (event) {
     if (!started) {
         console.log("Game is started");
         started = true; // Set started to true
+        enableButtons(); // Enable buttons when the game starts
         levelup(); // Call the levelup function
     } else {
         startOver(); // Allow user to start over on keypress after a game over
     }
 });
+
+// Function to enable button event listeners
+function enableButtons() {
+    for (let btn of allbtns) {
+        btn.disabled = false; // Enable buttons for user input
+        btn.addEventListener("click", btnPress); // Add click event for each button
+    }
+}
 
 // Function to progress to the next level
 function levelup() {
@@ -82,10 +97,13 @@ function startOver() {
     gameseq = []; // Clear game sequence
     userseq = []; // Clear user sequence
     score = 0; // Reset score to 0
+    disableButtons(); // Disable buttons again
 }
 
-// Add event listeners to all buttons
-let allbtns = document.querySelectorAll(".btn");
-for (let btn of allbtns) {
-    btn.addEventListener("click", btnPress); // Add click event for each button
+// Function to disable button event listeners
+function disableButtons() {
+    for (let btn of allbtns) {
+        btn.disabled = true; // Disable buttons when game is over
+        btn.removeEventListener("click", btnPress); // Remove click event listener
+    }
 }
