@@ -60,6 +60,14 @@ function userFlash(btn) {
     }, 300);
 }
 
+// Function to flash the button red for wrong answer
+function flashRed(btn) {
+    btn.classList.add("wrong"); // Add class for wrong answer flash
+    setTimeout(function () {
+        btn.classList.remove("wrong"); // Remove wrong class after timeout
+    }, 300);
+}
+
 // Function to handle button press by the user
 function btnPress() {
     let btn = this; // Reference to the clicked button
@@ -80,6 +88,7 @@ function checkAnswer(currentLevel) {
         }
     } else {
         console.log("Wrong! Game Over."); // Log incorrect answer
+        flashRed(allbtns[currentLevel]); // Flash the last pressed button red
         showScore(); // Show the score
         startOver(); // Call startOver function
     }
