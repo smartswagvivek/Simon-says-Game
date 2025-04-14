@@ -12,7 +12,11 @@ body {
     border: 10px solid black;
     margin: 1.5rem;
 }
-
+.wrong {
+    background-color: red; /* Change background color to red */
+    transition: background-color 0.3s; /* Add transition for smooth effect */
+    /* You can add more styles for visual effects */
+}
 /* Container styles for button alignment */
 .btn-container {
     display: flex;
